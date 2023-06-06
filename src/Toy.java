@@ -34,4 +34,17 @@ public class Toy {
     public void setWeight(int weight) {
         this.weight = weight;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(id);
+        sb.append(", ");
+        sb.append(name);
+        sb.append(", ");
+        sb.append(quantity);
+        sb.append(", ");
+        sb.append(weight);
+        return sb.toString();
+    }
 }
