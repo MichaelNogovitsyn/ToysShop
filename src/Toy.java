@@ -19,6 +19,10 @@ public class Toy implements Comparable<Toy> {
         return rezerv;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public void setRezerv(int x) {
         this.rezerv += x;
     }
@@ -35,8 +39,8 @@ public class Toy implements Comparable<Toy> {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setQuantity(int x) {
+        this.quantity += x;
     }
 
     public int getWeight() {
