@@ -7,6 +7,7 @@ public class Shop {
     List<Toy> toyList = new ArrayList<>();
     IdGenerator idGenerator = new IdGenerator();
     PriorityQueue<Toy> queue = new PriorityQueue<>();
+    Toy prize;
 
     public Shop(List<Toy> toyList) {
         this.toyList = toyList;
@@ -30,6 +31,7 @@ public class Shop {
 
     public void lottery(int count) {
         int i = 0;
+        if (count>0) System.out.println("Будут разыграны следующие призы");
         while (i < count) {
             Random random = new Random();
             int x = random.nextInt(toyList.size());
@@ -40,11 +42,26 @@ public class Shop {
                 toyList.get(x).setRezerv(-1);
                 queue.add(toyList.get(x));
             } else i--;
-
             i++;
         }
-
     }
-
-
+    public Toy getPrize()
+    {
+        prize=queue.poll();
+        if (prize!=null)
+        {
+            // уменьшим кол-во игрушки в магазине
+            toyList.get(prize.getId()).setQuantity(-1);
+            return prize;
+        }else return null;
+    }
+    public int totalQuntity()
+    {
+        int total=0;
+        for (Toy toy : toyList
+        ) {
+            total += toy.getQuantity();
+        }
+        return total;
+    }
 }
